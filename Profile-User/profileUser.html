@@ -1,0 +1,170 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="profileUser.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+<div class="container emp-profile">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-4">
+                <div class="profile-img">
+                <img class="profile-pic"  src="https://images.unsplash.com/photo-1497752531616-c3afd9760a11?ixlib=rb-1.2.1&w=1000&q=80" alt=""/>
+                <label for="upload" class="p-image middle">
+                <i class="fa fa-camera upload-button" aria-hidden="true"></i>
+                <input class="file-upload" type="file" id="upload" style="display:none">
+                </label>
+                </div>
+                </div>
+                <div class=" col-md-8 contain">
+                <div class="profile-head"><h2 id="userName"> </h2> </div>
+                <div class="row  dflex ">
+                <div class="col-md-6"> <label >User Id</label></div>
+                <div class="col-md-6"><p id="userId"> </p></div></div>
+                <div class="row dflex">
+                <div class="col-md-6"><label>Email</label> </div>
+                <div class="col-md-6"><p id="mailId"></p></div></div>
+                <div class="row dflex">
+                <div class="col-md-6"><label>Phone</label> </div>
+                <div class="col-md-6"><p id="phoneId"></p> </div></div>
+                <div class="row dflex">
+                <div class="col-md-6"><label>Address</label> </div>
+                <div class="col-md-6"><p id="addressUser"></p> </div>
+                </div>
+                </div>  
+            </div>
+        </form>
+<div class="row">
+<!-- donut Chart -->
+        <div class="col-md-4" >
+        <h4 style="text-align: center;">Pickup Status</h4>
+        <div class="  donut"><canvas  id="company" width="273" height="166"></canvas></div>
+        </div>
+<!-- about timeline edit -->
+<div class="col-md-8  pmd-card">
+    <div class="pmd-tabs">
+		<ul class="nav nav-tabs nav-fill" role="tablist">
+			<li class="nav-item active"><a class="nav-link " href="#home" aria-controls="home" role="tab" data-toggle="tab"><i class="fas fa-house-user"></i>Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="#order" aria-controls="about" role="tab" data-toggle="tab"><i class="fab fa-bitbucket"></i>Order Bucket</a></li>
+			<li class="nav-item"><a class="nav-link" href="#edit" aria-controls="work" role="tab" data-toggle="tab"><i class="fas fa-user-edit"> </i>Edit Profile</a></li>
+		</ul>
+	</div>
+    
+    <div class="">
+    <div class="tab-content">
+    <div role="tabpanel" class="tab-pane active homeD" id="home">
+        <div class="row">
+        <div class="col-md-6"><label>Total Scrap Sold<span> (in Kg)</span></label></div>
+        <div class="col-md-6"><p id="scrapSoldId"></p></div></div>
+        <div class="row">
+        <div class="col-md-6"><label>Total Amount Recived<span> (in Rs)</span></label></div>
+        <div class="col-md-6"><p id="totalAmt"></p></div></div>      
+        <div class="row"><div class="col-md-6"><label> Total contacted Dealer</label></div>
+        <div class="col-md-6"><p id="conDealer"></p></div></div>  
+        <div class="row">
+        <div class="col-md-6"> <label>Payment Receving Mode </label></div>
+        <div class="col-md-6"><p id="payMode"> </p></div></div>
+    </div>
+    <div role="tabpanel" class="tab-pane orderD" id="order">
+   
+    <div class="card bg-info text-white" >
+    <div class="card-body">
+            <div class="row">
+            <div class="col-md-6"><label>Order Id</label></div>
+            <div class="col-md-6"><p id="orderId"></p></div></div>
+            <div class="row">
+            <div class="col-md-6"><label>Order Status</label></div>
+            <div class="col-md-6"><p id="orderStatus"></p></div></div>      
+            <div class="row">
+            <div class="col-md-6"><label>Placed Date</label></div>
+            <div class="col-md-6"><p id="orderDate"></p></div></div>  
+            <div class="row">
+            <div class="col-md-6"> <label>Pick-Up Time </label></div>
+            <div class="col-md-6"><p id="pickTime"> HH/MM am/pm</p></div></div>
+        <span id="dots"></span>
+        <span id="more">
+        <div id="showM" class="showMore">
+            <div class="row">
+            <div class="col-md-6"> <label>Delaer Name</label></div>
+            <div class="col-md-6" id="dealerName"><p>Mrinal</p></div></div>
+            <div class="row">
+            <div class="col-md-6"><label>Payment Status</label></div>
+            <div class="col-md-6"><p id="paymentStat">Failed</p></div></div>      
+            <div class="row">
+            <div class="col-md-6"><label>Payment Mode</label></div>
+            <div class="col-md-6"><p id="paymentMo">Virtual</p></div> </div>  
+            <div class="row"> <div class="col-md-6"><label>Pick up Address</label></div>
+            <div class="col-md-6"><p id="pickAdd"> Daiict</p></div> </div>
+        </div>
+        </span>
+    </div></div>
+    <button onclick="myFunction()" id="myBtn"><i class="fa fa-arrow-down" aria-hidden="true"></i>Show More</button><br>
+    
+</div>
+    <div role="tabpanel" class="tab-pane editP " id="edit">
+    <div class="editD">
+        <div class="fieldset">
+        <label for="user-name">Name</label>
+        <div class="input-wrapper">
+            <span class="icon"><i class="fas fa-user"></i></span>
+            <input type="text" id="user-name"   placeholder="Your Name"autocomplete="username" value="">
+        </div>
+        <div id="user-name-helper" class="helper"></div>
+        </div>
+        <div class="fieldset">
+        <label for="email">E-mail</label>
+        <div class="input-wrapper">
+            <span class="icon"><i class="fas fa-envelope"></i></span>
+            <input type="email" id="email" placeholder="lorem@kabadi.com" autocomplete="email">
+        </div>
+        <div id="email-helper" class="helper"></div>
+        </div>
+        <div class="fieldset">
+        <label for="pass">Password</label>
+        <div class="input-wrapper">
+            <span class="icon"><i class="fas fa-key"></i></span>
+            <input type="password" id="pass" placeholder="password" autocomplete="current-password">
+        </div>
+        <div id="pass-helper" class="helper"></div>
+        </div>
+        <div class="fieldset">
+        <label for="pass">Re-enter Password</label>
+        <div class="input-wrapper">
+            <span class="icon"><i class="fas fa-key"></i></span>
+            <input type="password" id="repass" placeholder="re-enter password" autocomplete="current-password" required>
+            
+        </div>
+        <span id='message'></span>
+        <div id="pass-helper" class="helper"></div>
+        </div>
+        <div class="fieldset">
+        <label for="pass">Address</label>
+        <div class="input-wrapper">
+            <span class="icon"><i class="fas fa-map-marker"></i></span>
+            <input type="text" id="add" placeholder="Enter your Address" autocomplete="address">
+        </div>
+        <div id="pass-helper" class="helper"></div>
+        </div>
+        <div class="actions">
+        <a id="clear" class="lx-btn"><i class="fas fa-broom"></i>&nbsp;&nbsp;Clean</a>
+        <a id="save" onclick='changeFunct()'  class="lx-btn"><i class="fas fa-save"></i>&nbsp;&nbsp;Save</a>
+        </div>
+
+                    </div></div>
+    </div>
+    </div>
+</div>           
+</div>
+</div> 
+            
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" defer crossorigin="anonymous" data-search-pseudo-elements></script>
+        <script src="profileUser.js"></script>
+</body>
+</html>
