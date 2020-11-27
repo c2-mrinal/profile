@@ -1,0 +1,240 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="profileDealer.css">
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <script src="https://kit.fontawesome.com/a076d05399.js"></script>
+</head>
+<body>
+<div class="container emp-profile">
+        <form method="post">
+            <div class="row">
+                <div class="col-md-4">
+                <div class="profile-img">
+                <img class="profile-pic"  src="https://images.unsplash.com/photo-1497752531616-c3afd9760a11?ixlib=rb-1.2.1&w=1000&q=80" alt=""/>
+                <label for="upload" class="p-image middle">
+                <i class="fa fa-camera upload-button" aria-hidden="true"></i>
+                <input class="file-upload" type="file" id="upload" style="display:none">
+                </label>
+                </div>
+                </div>
+                <div class=" col-md-8 contain">
+                <div class="profile-head"><h2 id="userName"> </h2> </div>
+                <div class="row  dflex ">
+                <div class="col-md-6"> <label >User Id</label></div>
+                <div class="col-md-6"><p id="userId"> </p></div>
+                </div>
+                <div class="row dflex">
+                <div class="col-md-6"><label>Email</label> </div>
+                <div class="col-md-6"><p id="mailId"></p></div>
+                </div>
+                <div class="row dflex">
+                <div class="col-md-6"><label>Phone</label> </div>
+                <div class="col-md-6"><p id="phoneId"></p> </div>
+                </div>
+                <div class="row dflex">
+                <div class="col-md-6"><label>Pickup Locality</label> </div>
+                <div class="col-md-6"><p id="addressUser"></p> </div>
+                </div>
+                <div class="row dflex">
+                <div class="col-md-6"><label>Verification Type</label> </div>
+                <div class="col-md-6"><p id="veriMode"></p> </div>
+                </div>
+                <div class="row dflex" class="a-tag">
+                <div class="col-md-6"><label>Your Scrap Price Chart</label> </div>
+                <div class="col-md-6 a-tag"><a href="" class="" style="text-decoration: none;""> Click here to Check  <i class="fas fa-external-link-alt"></i></a> </div>
+                </div>
+                </div>  
+            </div>
+        </form>
+<div class="row">
+<!-- donut Chart -->
+        <div class="col-md-4" >
+        <h4 style="text-align: center;">Pickup Status</h4>
+        <div class="  donut"><canvas  id="company" width="273" height="166"></canvas></div>
+        </div>
+<!-- about timeline edit -->
+<div class="col-md-8  pmd-card">
+    <div class="pmd-tabs">
+		<ul class="nav nav-tabs nav-fill" role="tablist">
+			<li class="nav-item active"><a class="nav-link " href="#home" aria-controls="home" role="tab" data-toggle="tab"><i class="fas fa-house-user fa-lg"></i>Home</a></li>
+			<li class="nav-item"><a class="nav-link" href="#order" aria-controls="about" role="tab" data-toggle="tab"><i class="fas fa-plus fa-lg"></i> Update Scrap Price</a></li>
+			<li class="nav-item"><a class="nav-link" href="#edit" aria-controls="work" role="tab" data-toggle="tab"><i class="fas fa-user-edit fa-lg"> </i>Edit Profile</a></li>
+		</ul>
+	</div>
+    
+    <div class="">
+    <div class="tab-content">
+      <!-- home tablist -->
+    <div role="tabpanel" class="tab-pane active homeD" id="home">
+      <section class="home">
+        <div class="pending">
+            <i class="fas fa-external-link-alt external"></i>
+            <div class="pending1">
+            <a href=""><i class="fas fa-user-clock fa-7x"></i>
+            <p><span> Current Pending Order :</span>
+           <span id="pendingOrder"></span> </p>
+            </a></div>
+        </div>
+        <div class="sucess">
+            <i class="fas fa-external-link-alt external"></i>
+            <div class="sucess1">
+            <a href=""><i class="fas fa-check fa-7x"></i>
+            <p><span> Total Sucess Order :</span>
+            <span id="sucessOrder"></span> </p>
+            </a></div>
+        </div>
+        <div class="cancel">
+            <i class="fas fa-external-link-alt external"></i>
+            <div class="cancel1">
+            <a href=""><i class="far fa-window-close fa-7x"></i>
+            <p><span> Total Canceled Order :</span> 
+            <span id="cancelOrder"></span> </p>
+            </a></div>
+        </div>
+          </section>
+    </div>
+    <!-- Update price tablist -->
+    <div role="tabpanel" class="tab-pane orderD" id="order">
+      <section class="esti"  action="/action_page.php">  
+        <div class=" context-item">
+            <h3>Select Scrap Item </h3>
+        <div class="select">
+                <select class="slct " id="selItem"  >
+                  <option>Plastic</option>
+                  <option>Paper</option>
+                  <option>Book</option>
+                  <option>Steeltion>
+                  <option>Wood items</option>
+                  <option>Wire</option>
+                  <option>Electrical</option>
+                  <option>Copper</option>
+                  <option>Glass</option>
+                  <option>Aluminium</option>
+                  <option>Battery</option>
+                  <option>Antique </option>
+          </select>
+        </div>
+        </div>
+        <div class="user-input ">
+            <h3>Price Rate</h3>
+            <input class="input " type="number" min="0" id="u-amount" placeholder="weight in kilogram"  value="0" required>  
+        </div>
+        
+        <div class="btn-container">
+            <button onclick="display()" class="btn1 wobble-to-bottom-right-on-hover">Update Price</Button>
+        </div>
+    </section>
+ <section >
+        <table class="table">
+           <tbody>
+            <tr class="thProp">
+              <th class="th">Item Selected</th>
+                <th class="th">Item Update  Price  </th>
+            </tr>
+            </tbody>
+            <tbody id="newRow" class="newR">
+            </tbody>
+            
+        </table>
+    </section>
+    </div>
+    <!-- edit profile info -->
+    <div role="tabpanel" class="tab-pane editP " id="edit">
+    <div class="editD">
+        <div class="fieldset">
+        <label for="user-name">Name</label>
+        <div class="input-wrapper">
+            <span class="icon"><i class="fas fa-user"></i></span>
+            <input type="text" id="user-name"   placeholder="Your Name"autocomplete="username" value="">
+        </div>
+        <div id="user-name-helper" class="helper"></div>
+        </div>
+        <div class="fieldset">
+        <label for="email">E-mail</label>
+        <div class="input-wrapper">
+            <span class="icon"><i class="fas fa-envelope"></i></span>
+            <input type="email" id="email" placeholder="lorem@kabadi.com" autocomplete="email">
+        </div>
+        <div id="email-helper" class="helper"></div>
+        </div>
+        <div class="fieldset">
+        <label for="pass">Password</label>
+        <div class="input-wrapper">
+            <span class="icon"><i class="fas fa-key"></i></span>
+            <input type="password" id="pass" placeholder="password" autocomplete="current-password">
+        </div>
+        <div id="pass-helper" class="helper"></div>
+        </div>
+        <div class="fieldset">
+        <label for="pass">Re-enter Password</label>
+        <div class="input-wrapper">
+            <span class="icon"><i class="fas fa-key"></i></span>
+            <input type="password" id="repass" placeholder="re-enter password" autocomplete="current-password" required>
+            
+        </div>
+        <span id='message'></span>
+        <div id="pass-helper" class="helper"></div>
+        </div>
+        <div class="fieldset">
+        <label for="pass">Address</label>
+        <div class="input-wrapper">
+            <span class="icon"><i class="fas fa-map-marker"></i></span>
+            <input type="text" id="add" placeholder="Enter your Address" autocomplete="address">
+        </div>
+        <div id="pass-helper" class="helper"></div>
+        </div>
+        <div class="actions">
+        <a id="clear" class="lx-btn"><i class="fas fa-broom"></i>&nbsp;&nbsp;Clean</a>
+        <a id="save" onclick='changeFunct()'  class="lx-btn"><i class="fas fa-save"></i>&nbsp;&nbsp;Save</a>
+        </div>
+
+                    </div></div>
+    </div>
+    </div>
+</div>           
+</div>
+</div> 
+            
+        <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/Chart.js/2.5.0/Chart.bundle.min.js"></script>
+        <script src="https://use.fontawesome.com/releases/v5.14.0/js/all.js" defer crossorigin="anonymous" data-search-pseudo-elements></script>
+        <script src="profileDealer.js"></script>
+        <script>
+            // donut chart code
+var green = "rgba(52,191,158,1)";
+var yellow = "rgba(255,232,124,1)";
+var red = "#FF4242";
+var transparent = "rgba(0,0,0,0)";
+
+Chart.defaults.global.defaultFontColor = '#888888';
+Chart.defaults.global.defaultFontFamily = '"Open Sans"';
+//Chart.defaults.global.legend = false;
+
+var companyCtx = document.getElementById("company");
+var company = new Chart(companyCtx, {
+  type: 'doughnut',
+  data: {
+    
+    datasets: [{
+      data: [Canceled, Sucessful,Transit],
+      backgroundColor: [
+        red,
+        green,
+        yellow,
+      ]
+    }],
+    labels: [
+      "Canceled",
+      "Successful",
+      "In Transit",
+      
+    ],
+  }
+});
+        </script>
+</body>
+</html>
